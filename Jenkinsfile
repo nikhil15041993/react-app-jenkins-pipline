@@ -9,8 +9,10 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-                sh "sudo rm -rf /var/www/react-app"
-                sh "sudo cp -r ${WORKSPACE}/build/ /var/www/react-app/"
+                sh "sudo rm -rf /home/react/react-app-pipeline/*"
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'react', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home/react/react-app-pipeline', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'build/')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                 
+                
             }
         }
     }
