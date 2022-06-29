@@ -4,7 +4,10 @@ pipeline {
      
      agent any
      
-     tool name: 'Nodejs', type: 'nodejs'
+     
+     tools {nodejs "Nodejs"}
+   
+    
      
      
      stages {
