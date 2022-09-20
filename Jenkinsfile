@@ -5,7 +5,7 @@ pipeline {
      agent any
      
      
-     tools {nodejs "Nodejs"}
+     tools {nodejs "my-node"}
    
     
      
